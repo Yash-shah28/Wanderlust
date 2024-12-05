@@ -6,7 +6,7 @@ const wrapAsync = require("../utils/wrapAsync.js")
 const createreview = wrapAsync(async (req,res) =>{
     let listingid = await Listing.findById(req.params.id);
     let newReview = new Review(req.body.review)
-
+    newReview.author = req.user._id;
     listingid.reviews.push(newReview);
     await newReview.save();
     await listingid.save();
