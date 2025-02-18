@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const mongo_url = require('../constant.js');
-
+require('dotenv').config();
+const mongodb_url =process.env.MONGO_URL;
 
 
 const connectdb = async ()=>{
@@ -11,7 +11,7 @@ const connectdb = async ()=>{
         console.log(err)
     });
     async function main() {
-        await mongoose.connect(mongo_url, {
+        await mongoose.connect(mongodb_url, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   socketTimeoutMS: 30000, // 30 seconds
