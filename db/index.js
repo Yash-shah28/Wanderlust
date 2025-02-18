@@ -11,7 +11,12 @@ const connectdb = async ()=>{
         console.log(err)
     });
     async function main() {
-        await mongoose.connect(mongo_url);
+        await mongoose.connect(mongo_url, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  socketTimeoutMS: 30000, // 30 seconds
+  connectTimeoutMS: 30000, // 30 seconds
+});
       }
 }
 
