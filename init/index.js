@@ -8,7 +8,7 @@ connectdb().then(()=>{
         await Listing.deleteMany({});
         initdata.data = initdata.data.map((obj)=>({
             ...obj,
-            owner: "674c77b13529f47780f8670e"}))
+            owner: "67b47447cfd68b24f990eecf"}))
         await Listing.insertMany(initdata.data);
         console.log("Data is intialized");
     }
